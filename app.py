@@ -1,6 +1,11 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 @app.route("/")
+def index():
+    name = "Mrs Akinfolaju"
+    return "Welcome to our website"
+
+@app.route("/homepage")
 def homepage():
     name = "Mrs Akinfolaju"
     return render_template("homepage.html", name=name)
@@ -35,10 +40,6 @@ def division():
     c = a/b
     return "hurray!, you are correct. This is the result " + str (c)
 
-if __name__ == '__main__':
-   app.run(host='127.0.0.1', port=5001, debug =True)
-   
-
 #create a route to return contact us, showing email address and phone number and display on the website using python
 @app.route("/contact")
 def contact():
@@ -52,9 +53,8 @@ def task():
     a = 91
     b = 81
     c = 71
-    d = a+b+c
-    f = d-50
-    return "Yes, I got it! This is the final result" + str(f)
-
+    d = a + b + c
+    f = d - 50
+    return "Yes, I got it! This is the final result : " + str(f)
 if __name__ == '__main__':
    app.run(host='127.0.0.1', port=5001, debug =True)
